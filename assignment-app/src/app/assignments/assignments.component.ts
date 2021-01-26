@@ -9,6 +9,9 @@ export class AssignmentsComponent implements OnInit {
 
   titre = "Mon application sur les Assignments !"
 
+  ajoutActive = false
+
+
   assignments = [
     {
       nom:"TP1 Web component",
@@ -27,10 +30,18 @@ export class AssignmentsComponent implements OnInit {
     }
   ]
 
-
   constructor() { }
 
   ngOnInit(): void {
+
+    setTimeout(() => { 
+      this.ajoutActive = true;
+     } , 2000 )
+  }
+
+
+  onSubmit(event){
+    console.log(event)
   }
 
 }
