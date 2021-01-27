@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {Assignment} from './assignment.model';
+
 @Component({
   selector: 'app-assignments',
   templateUrl: './assignments.component.html',
@@ -11,21 +13,24 @@ export class AssignmentsComponent implements OnInit {
 
   ajoutActive = false
 
+  //form
+  nomDevoir:string
+  dateRendu:Date
 
   assignments = [
     {
       nom:"TP1 Web component",
-      dataDeRendu:'2020-11-17',
+      dateDeRendu:new Date(2020-11-17),
       rendu:true
     },
     {
       nom:"TP2 Web Angular",
-      dataDeRendu:'2020-12-13',
+      dateDeRendu:new Date(2020-12-13),
       rendu:false
     },
     {
       nom:"Mini projet Angular",
-      dataDeRendu:'2021-01-07',
+      dateDeRendu:new Date(2021-1-7),
       rendu:false
     }
   ]
@@ -40,8 +45,14 @@ export class AssignmentsComponent implements OnInit {
   }
 
 
-  onSubmit(event){
-    console.log(event)
+  onSubmit(){
+    const newAssignment = new Assignment();
+    newAssignment.nom = this.nomDevoir;
+    newAssignment.dateDeRendu = this.dateRendu;
+    newAssignment.rendu = false;
+
+    this.assignments.push(newAssignment);
+
   }
 
 }
