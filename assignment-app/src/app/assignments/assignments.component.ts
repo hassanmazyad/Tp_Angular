@@ -11,26 +11,24 @@ export class AssignmentsComponent implements OnInit {
 
   titre = "Mon application sur les Assignments !"
 
-  ajoutActive = false
+  formVisible = false;
 
-  //form
-  nomDevoir:string
-  dateRendu:Date
+  assignmentSelection:Assignment;
 
   assignments = [
     {
       nom:"TP1 Web component",
-      dateDeRendu:new Date(2020-11-17),
+      dateDeRendu:new Date("2020-11-17"),
       rendu:true
     },
     {
       nom:"TP2 Web Angular",
-      dateDeRendu:new Date(2020-12-13),
+      dateDeRendu:new Date("2020-12-13"),
       rendu:false
     },
     {
       nom:"Mini projet Angular",
-      dateDeRendu:new Date(2021-1-7),
+      dateDeRendu:new Date("2021-1-7"),
       rendu:false
     }
   ]
@@ -38,21 +36,19 @@ export class AssignmentsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
-    setTimeout(() => { 
-      this.ajoutActive = true;
-     } , 2000 )
+  }
+  
+  assignmentClique(assignment){
+    this.assignmentSelection = assignment;
   }
 
+  onAddAssignmentBtnClick(){
+    this.formVisible = true;
+  }
 
-  onSubmit(){
-    const newAssignment = new Assignment();
-    newAssignment.nom = this.nomDevoir;
-    newAssignment.dateDeRendu = this.dateRendu;
-    newAssignment.rendu = false;
-
-    this.assignments.push(newAssignment);
-
+  onNouvelAssignment(event:Assignment){
+    this.assignments.push(event);
+    this.formVisible=false;
   }
 
 }

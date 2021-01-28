@@ -10,8 +10,12 @@
     background-color: rgb(255, 93, 93);
 }
 
-.form {
+.container {
     display: flex;
     flex-direction: column;
-    margin: 5px;
 }
+
+.ajouterBtn{
+    align-self: flex-end;
+}
+
