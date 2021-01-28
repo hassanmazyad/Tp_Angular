@@ -9,8 +9,6 @@ export class RenduDirective {
     el.nativeElement.style.color = 'green';
     el.nativeElement.style.border = '1px dashed green';
     el.nativeElement.style.backgroundColor = 'yellow';
-  
-    
   }
 
 }
