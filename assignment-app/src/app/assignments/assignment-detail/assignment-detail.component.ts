@@ -17,12 +17,23 @@ export class AssignmentDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
   onAssignmentRendu() {
     this.assignmentTransmis.rendu = true;
     this.assignmentsService.updateAssignment(this.assignmentTransmis)
       .subscribe(message =>{
         console.log("assignment mis à jour");
       })
+  }
+
+  onDelete(){
+    this.assignmentsService.deleteAssignment(this.assignmentTransmis)
+      .subscribe(message =>{
+        console.log("assignment supprimé");
+        this.assignmentTransmis=null;
+      })
+    
   }
 
 }
