@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AssignmentsService } from '../shared/assignments.service';
 
 import {Assignment} from './assignment.model';
 
@@ -10,32 +11,19 @@ import {Assignment} from './assignment.model';
 export class AssignmentsComponent implements OnInit {
 
   titre = "Mon application sur les Assignments !"
-
   formVisible = false;
-
   assignmentSelection:Assignment;
+  assignments:Assignment[];
 
-  assignments = [
-    {
-      nom:"TP1 Web component",
-      dateDeRendu:new Date("2020-11-17"),
-      rendu:true
-    },
-    {
-      nom:"TP2 Web Angular",
-      dateDeRendu:new Date("2020-12-13"),
-      rendu:false
-    },
-    {
-      nom:"Mini projet Angular",
-      dateDeRendu:new Date("2021-1-7"),
-      rendu:false
-    }
-  ]
 
-  constructor() { }
+  constructor(private assignmentsService:AssignmentsService) { }
 
   ngOnInit(): void {
+    //this.assignments=this.assignmentsService.getAssignments();
+    this.assignmentsService.getAssignments()
+      .subscribe(assignments => {
+        this.assignments=assignments;
+      });
   }
   
   assignmentClique(assignment){
@@ -47,8 +35,12 @@ export class AssignmentsComponent implements OnInit {
   }
 
   onNouvelAssignment(event:Assignment){
-    this.assignments.push(event);
-    this.formVisible=false;
+    this.assignmentsService.addAssignment(event)
+      .subscribe(message => {
+        console.log("message");
+        this.formVisible=false;
+      })
+    
   }
 
 }
