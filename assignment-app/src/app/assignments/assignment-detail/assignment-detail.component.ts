@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AssignmentsService } from 'src/app/shared/assignments.service';
 import { Assignment } from '../assignment.model';
 
@@ -9,13 +10,25 @@ import { Assignment } from '../assignment.model';
 })
 export class AssignmentDetailComponent implements OnInit {
 
-  @Input() assignmentTransmis: Assignment;
+  assignmentTransmis: Assignment;
 
 
-  constructor(private assignmentsService:AssignmentsService) { }
+  constructor(private assignmentsService:AssignmentsService,
+              private route:ActivatedRoute,
+              private router:Router) { }
 
   ngOnInit(): void {
+    this.getAssignment();
   }
+
+  getAssignment(){
+    let id = +this.route.snapshot.params.id;
+    this.assignmentsService.getAssignment(id)
+      .subscribe( a => {
+        this.assignmentTransmis = a ;
+      })
+  }
+
 
 
 
@@ -24,6 +37,7 @@ export class AssignmentDetailComponent implements OnInit {
     this.assignmentsService.updateAssignment(this.assignmentTransmis)
       .subscribe(message =>{
         console.log("assignment mis à jour");
+        this.router.navigate(["/home"]);
       })
   }
 
@@ -32,6 +46,7 @@ export class AssignmentDetailComponent implements OnInit {
       .subscribe(message =>{
         console.log("assignment supprimé");
         this.assignmentTransmis=null;
+        this.router.navigate(["/home"]);
       })
     
   }

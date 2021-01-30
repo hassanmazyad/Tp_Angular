@@ -1,4 +1,5 @@
 import { Component, OnInit, /*Output , EventEmitter*/} from '@angular/core';
+import { Router } from '@angular/router';
 import { AssignmentsService } from 'src/app/shared/assignments.service';
 import {Assignment} from '../assignment.model';
 
@@ -14,7 +15,8 @@ export class AddAssignmentComponent implements OnInit {
   dateRendu:Date
 
     
-  constructor(private assignmentsService:AssignmentsService) { }
+  constructor(private assignmentsService:AssignmentsService,
+              private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -33,6 +35,7 @@ export class AddAssignmentComponent implements OnInit {
     this.assignmentsService.addAssignment(newAssignment)
     .subscribe(message => {
       console.log("message");
+      this.router.navigate(["home/"]);
     })
   }
 }

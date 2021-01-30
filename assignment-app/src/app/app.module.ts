@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -19,6 +19,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { AddAssignmentComponent } from './assignments/add-assignment/add-assignment.component';
 import {RouterModule, Routes} from "@angular/router";
+import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component';
 
 
 const routes:Routes = [
@@ -33,7 +34,12 @@ const routes:Routes = [
   {
     path:"add",
     component : AddAssignmentComponent
+  },
+  {
+    path:"assignment/:id",
+    component : AssignmentDetailComponent
   }
+
 ]
 
 
@@ -43,7 +49,8 @@ const routes:Routes = [
     AssignmentsComponent,
     RenduDirective,
     AssignmentDetailComponent,
-    AddAssignmentComponent
+    AddAssignmentComponent,
+    EditAssignmentComponent
   ],
   imports: [
     BrowserModule,
