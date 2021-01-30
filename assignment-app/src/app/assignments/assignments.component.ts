@@ -30,10 +30,7 @@ export class AssignmentsComponent implements OnInit {
     this.assignmentSelection = assignment;
   }
 
-  onAddAssignmentBtnClick(){
-    this.formVisible = true;
-  }
-
+/*
   onNouvelAssignment(event:Assignment){
     this.assignmentsService.addAssignment(event)
       .subscribe(message => {
@@ -42,5 +39,6 @@ export class AssignmentsComponent implements OnInit {
       })
     
   }
+  */
 
 }
