@@ -38,6 +38,10 @@ const routes:Routes = [
   {
     path:"assignment/:id",
     component : AssignmentDetailComponent
+  },
+  {
+    path:"assignment/:id/edit",
+    component : EditAssignmentComponent
   }
 
 ]

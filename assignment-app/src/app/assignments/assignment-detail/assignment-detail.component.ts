@@ -48,7 +48,16 @@ export class AssignmentDetailComponent implements OnInit {
         this.assignmentTransmis=null;
         this.router.navigate(["/home"]);
       })
-    
   }
 
+  onClickEdit(){
+    this.router.navigate(
+      ['assignment' , this.assignmentTransmis.id , 'edit'],
+      {
+        queryParams:{
+          nom:this.assignmentTransmis.nom
+        },
+        fragment:"edition"
+      });
+  }
 }
