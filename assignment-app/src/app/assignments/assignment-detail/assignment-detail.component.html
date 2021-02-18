@@ -5,7 +5,7 @@
         <mat-checkbox *ngIf="!assignmentTransmis.rendu" (click)="onAssignmentRendu()">Assignment rendu</mat-checkbox>
 
 
-        <button mat-flat-button color="primary" (click)="onClickEdit()">
+        <button mat-flat-button color="primary" (click)="onClickEdit()" [disabled]="!loggedIn()">
             EDIT
          </button>
 
