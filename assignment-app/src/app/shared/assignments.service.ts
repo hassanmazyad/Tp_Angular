@@ -3,6 +3,8 @@ import { Assignment } from '../assignments/assignment.model';
 import {Observable, of} from 'rxjs';
 import { LoggingService } from './logging.service';
 import { HttpClient } from '@angular/common/http';
+import {catchError, map , tap} from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,14 +17,54 @@ export class AssignmentsService {
 
   getAssignments():Observable<Assignment[]> {
     //return of(this.assignments);
-    return this.http.get<Assignment []>(this.uri);
+    return this.http.get<Assignment []>(this.uri)
+      .pipe( 
+        catchError(this.handleError<any>("get assignments "))
+      )
+    /*
+      .pipe(map(liste => {
+          liste.forEach(as => {
+            as.nom += " MODIFIE DANS PIPE AVEC UN MAP";
+          })
+          
+          return liste;
+      }));
+      */
+  }
+
+  //Verion avec promesse
+  getAssignmentsPromise():Promise<Assignment[]> {
+    //return of(this.assignments);
+    return this.http.get<Assignment []>(this.uri).toPromise();
   }
 
   getAssignment(id:number):Observable<Assignment> {
     //let result = this.assignments.find(a => (a.id === id));
     //return of(result);
-    return this.http.get<Assignment>(this.uri + "/" + id);
+    return this.http.get<Assignment>(this.uri + "/" + id)
+    .pipe(
+      map(a => {
+        a.nom += " MODIFIE DANS PIPE AVEC UN MAP";
+        return a;
+    }),
+    tap(a => {
+        console.log("dans le tap");
+        console.log(a);
+    }),
+    catchError(this.handleError<Assignment>(`getAssignment(id=${id})`))    
+    );
   }
+
+
+  private handleError<T>(operation , result?:T){
+    return(error:any) : Observable<T> => {
+      console.log(error);
+      console.log(operation + "a échoué " + error.message);
+      
+      return of(result as T)
+    }
+  }
+
 
   addAssignment(assignment:Assignment):Observable<any>{
     this.loggingService.log(assignment , "ajouté");

@@ -20,10 +20,18 @@ export class AssignmentsComponent implements OnInit {
 
   ngOnInit(): void {
     //this.assignments=this.assignmentsService.getAssignments();
+    
     this.assignmentsService.getAssignments()
       .subscribe(assignments => {
         this.assignments=assignments;
       });
+      
+   /*
+   this.assignmentsService.getAssignmentsPromise()
+   .then(assignments => {
+     this.assignments = assignments;
+   })
+   */
   }
   
   assignmentClique(assignment){
