@@ -22,6 +22,8 @@ import {RouterModule, Routes} from "@angular/router";
 import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component';
 import { AuthGuard } from './shared/auth.guard';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {HttpClientModule} from '@angular/common/http';
+
 
 const routes:Routes = [
   {
@@ -72,8 +74,11 @@ const routes:Routes = [
     MatListModule ,
     MatCardModule,
     MatCheckboxModule,
+    FormsModule,
+    HttpClientModule,
     MatSlideToggleModule,
-    RouterModule.forRoot(routes) 
+    RouterModule.forRoot(routes)
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

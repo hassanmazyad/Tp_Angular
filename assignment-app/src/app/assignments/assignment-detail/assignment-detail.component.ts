@@ -45,7 +45,7 @@ export class AssignmentDetailComponent implements OnInit {
   onDelete(){
     this.assignmentsService.deleteAssignment(this.assignmentTransmis)
       .subscribe(message =>{
-        console.log("assignment supprimé");
+        console.log(message);
         this.assignmentTransmis=null;
         this.router.navigate(["/home"]);
       })

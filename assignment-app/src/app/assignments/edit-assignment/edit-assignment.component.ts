@@ -49,9 +49,12 @@ import { Assignment } from '../assignment.model';
         this.assignment.dateDeRendu = this.dateDeRendu;
       }
 
-      this.assignmentsService.updateAssignment(this.assignment)
-      .subscribe(message => console.log(message));
-      // navigation vers la home page
+      this.assignmentsService
+      .updateAssignment(this.assignment)
+      .subscribe( (message) => {
+        console.log(message);
+        // navigation vers la home page
         this.router.navigate(["/home"]);
-      }
+      });
+    }
 }
