@@ -41,7 +41,8 @@ export class AssignmentsService {
   getAssignment(id:number):Observable<Assignment> {
     //let result = this.assignments.find(a => (a.id === id));
     //return of(result);
-    return this.http.get<Assignment>(this.uri + "/" + id)
+    return this.http.get<Assignment>(this.uri + "/" + id);
+    /*
     .pipe(
       map(a => {
         a.nom += " MODIFIE DANS PIPE AVEC UN MAP";
@@ -53,6 +54,7 @@ export class AssignmentsService {
     }),
     catchError(this.handleError<Assignment>(`getAssignment(id=${id})`))    
     );
+    */
   }
 
 
