@@ -49,4 +49,7 @@ export class AssignmentsComponent implements OnInit {
   }
   */
 
+ peuplerBD() {
+  this.assignmentsService.peuplerBD();
+ }
 }

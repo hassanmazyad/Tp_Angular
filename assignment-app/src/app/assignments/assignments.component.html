@@ -3,21 +3,31 @@
     <a routerLink="/add">
         <button class="ajouterBtn" mat-flat-button color="accent">Ajouter un devoir</button>
     </a>
+
+    <button class="ajouterBtn" mat-flat-button color="accent" (click)="peuplerBD()">Peupler BD</button>
 </div>
 
+<!--
+<cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+    <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
+  </cdk-virtual-scroll-viewport>
+-->
 
-<mat-list *ngFor="let assignment of assignments">
-    <nav>
-        <a routerLink="/assignment/{{assignment.id}}">
-            <h3 mat-subheader>date de rendu : {{assignment.dateDeRendu | date}}</h3>
-            <mat-list-item (click)="assignmentClique(assignment)">
-                <p appRendu *ngIf="assignment.rendu; else nonSoumis">Devoir intitulé {{assignment.nom}} à rendre, a été rendu</p>
-                <ng-template #nonSoumis>
-                    <p>le devoir {{assignment.nom}} n'a pas été rendu</p>
-                </ng-template>
-                <mat-divider></mat-divider>
-            </mat-list-item>
-        </a>
-    </nav>
-</mat-list> 
+
+<cdk-virtual-scroll-viewport itemSize="150" class="example-viewport">
+    <mat-list *cdkVirtualFor="let assignment of assignments">
+        <nav>
+            <a routerLink="/assignment/{{assignment.id}}">
+                <h3 mat-subheader>date de rendu : {{assignment.dateDeRendu | date}}</h3>
+                <mat-list-item (click)="assignmentClique(assignment)" class="example-item">
+                    <p appRendu *ngIf="assignment.rendu; else nonSoumis">Devoir intitulé {{assignment.nom}} à rendre, a été rendu</p>
+                    <ng-template #nonSoumis>
+                        <p>le devoir {{assignment.nom}} n'a pas été rendu</p>
+                    </ng-template>
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+            </a>
+        </nav>
+    </mat-list>
+</cdk-virtual-scroll-viewport>
 

@@ -23,7 +23,7 @@ import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assi
 import { AuthGuard } from './shared/auth.guard';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {HttpClientModule} from '@angular/common/http';
-
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 const routes:Routes = [
   {
@@ -77,6 +77,7 @@ const routes:Routes = [
     FormsModule,
     HttpClientModule,
     MatSlideToggleModule,
+    ScrollingModule,
     RouterModule.forRoot(routes)
     
   ],

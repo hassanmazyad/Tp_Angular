@@ -4,6 +4,7 @@ import {Observable, of} from 'rxjs';
 import { LoggingService } from './logging.service';
 import { HttpClient } from '@angular/common/http';
 import {catchError, map , tap} from 'rxjs/operators';
+import * as data from './assignments.json';
 
 @Injectable({
   providedIn: 'root'
@@ -108,4 +109,31 @@ export class AssignmentsService {
     */
     return this.http.delete(this.uri + "/" + assignment._id);
   }
+
+
+  assignments_json: any = (data as any).default;
+
+  peuplerBD(){
+    for (let i = 0 ; i < this.assignments_json.length ; i++){
+      const a = this.assignments_json[i]
+
+      const new_assignment = new Assignment();
+
+      new_assignment.id = this.getNewId();
+
+      new_assignment.nom = a.nom;
+      new_assignment.dateDeRendu = new Date(a.dateDeRendu);
+      new_assignment.rendu = false;
+
+      this.addAssignment(new_assignment)
+        .subscribe(message => {
+          console.log("Assignment Crée");
+        });
+    }
+  }
+
+  getNewId():number {
+    return Math.ceil(Math.random()*100000);
+  }
+  
 }
