@@ -39,6 +39,28 @@ export class AssignmentsService {
     return this.http.get<Assignment []>(this.uri).toPromise();
   }
 
+
+  getMoreAssignments(page , size): Observable<Assignment[]> {
+      let newAssignments:Assignment[] = [];
+
+      for (let i =0 ; i<size ; i++ ){
+        const id = this.getNewId();
+
+        newAssignments.push(
+          {
+            id:id,
+            nom:'Nouvel assignement #' + id,
+            dateDeRendu: new Date(),
+            rendu: false
+          }
+        );
+        }
+      return of(newAssignments)
+  }
+
+
+
+
   getAssignment(id:number):Observable<Assignment> {
     //let result = this.assignments.find(a => (a.id === id));
     //return of(result);

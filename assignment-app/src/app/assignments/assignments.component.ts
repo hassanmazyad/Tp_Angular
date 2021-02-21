@@ -52,4 +52,13 @@ export class AssignmentsComponent implements OnInit {
  peuplerBD() {
   this.assignmentsService.peuplerBD();
  }
+
+ addMoreAssignments() {
+  this.assignmentsService
+    .getMoreAssignments(1 , 20)
+    .subscribe((newAssignments) => {
+      console.log("On a ajouté 20 nouveaux assignments à la liste actuelle...");
+      this.assignments = [...this.assignments , ...newAssignments];
+    });
+ }
 }
