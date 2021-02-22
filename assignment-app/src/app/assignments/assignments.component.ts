@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
+import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
+import { filter, map, pairwise, tap, throttleTime } from 'rxjs/operators';
 import { AssignmentsService } from '../shared/assignments.service';
 
 import {Assignment} from './assignment.model';
@@ -14,13 +16,14 @@ export class AssignmentsComponent implements OnInit {
   formVisible = false;
   assignmentSelection:Assignment;
   assignments:Assignment[];
+  @ViewChild('scroller') scroller: CdkVirtualScrollViewport;
 
 
-  constructor(private assignmentsService:AssignmentsService) { }
+  constructor(private assignmentsService:AssignmentsService , private ngZone:NgZone) { }
 
   ngOnInit(): void {
     //this.assignments=this.assignmentsService.getAssignments();
-    
+    console.log("on Init");
     this.assignmentsService.getAssignments()
       .subscribe(assignments => {
         this.assignments=assignments;
@@ -33,6 +36,29 @@ export class AssignmentsComponent implements OnInit {
    })
    */
   }
+
+  ngAfterViewInit(){
+    console.log("After view init");
+    this.scroller.elementScrolled().pipe(
+      map(e => {
+        return this.scroller.measureScrollOffset('bottom');
+      }),
+      tap(val => {
+        console.log(val);
+      }),
+      pairwise(),
+      filter( ([y1 , y2]) => {
+        return ( y2 < y1 && y2 < 140) 
+      }),
+    ).subscribe( () => {
+      console.log("...Dans subscribe du scroller, je charge plus d'assignments");
+      this.ngZone.run(() => {
+        this.addMoreAssignments();
+      })
+    })
+
+  }
+
   
   assignmentClique(assignment){
     this.assignmentSelection = assignment;

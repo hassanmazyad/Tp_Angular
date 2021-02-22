@@ -16,7 +16,7 @@
 -->
 
 
-<cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+<cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" #scroller>
     <mat-list *cdkVirtualFor="let assignment of assignments">
         <nav>
             <a routerLink="/assignment/{{assignment.id}}">
