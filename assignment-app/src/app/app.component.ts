@@ -10,8 +10,6 @@ import { AuthService } from './shared/auth.service';
 export class AppComponent {
   constructor (private authService:AuthService , private router:Router) {}
 
-  titre = "Application de gestion des assignments";
-
   logInOut() {
     if(this.authService.loggedIn){
       this.authService.logOut();

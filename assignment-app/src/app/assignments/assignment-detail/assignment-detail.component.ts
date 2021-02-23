@@ -30,9 +30,6 @@ export class AssignmentDetailComponent implements OnInit {
       })
   }
 
-
-
-
   onAssignmentRendu() {
     this.assignmentTransmis.rendu = true;
     this.assignmentsService.updateAssignment(this.assignmentTransmis)

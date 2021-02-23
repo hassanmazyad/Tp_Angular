@@ -24,11 +24,12 @@ import { AuthGuard } from './shared/auth.guard';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {HttpClientModule} from '@angular/common/http';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import { LoginPageComponent } from './users/login-page/login-page.component';
 
 const routes:Routes = [
   {
     path:"", 
-    component:AssignmentsComponent 
+    component : LoginPageComponent
   },
   {
     path:"home",
@@ -46,6 +47,10 @@ const routes:Routes = [
     path:"assignment/:id/edit",
     component : EditAssignmentComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path:"login",
+    component : LoginPageComponent
   }
 
 ]
@@ -58,7 +63,8 @@ const routes:Routes = [
     RenduDirective,
     AssignmentDetailComponent,
     AddAssignmentComponent,
-    EditAssignmentComponent
+    EditAssignmentComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
