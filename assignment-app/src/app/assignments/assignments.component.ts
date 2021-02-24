@@ -1,5 +1,6 @@
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { filter, map, pairwise, tap, throttleTime } from 'rxjs/operators';
 import { AssignmentsService } from '../shared/assignments.service';
 
@@ -19,7 +20,7 @@ export class AssignmentsComponent implements OnInit {
   @ViewChild('scroller') scroller: CdkVirtualScrollViewport;
 
 
-  constructor(private assignmentsService:AssignmentsService , private ngZone:NgZone) { }
+  constructor(private assignmentsService:AssignmentsService , private ngZone:NgZone , private router:Router) { }
 
   ngOnInit(): void {
     //this.assignments=this.assignmentsService.getAssignments();
@@ -86,5 +87,9 @@ export class AssignmentsComponent implements OnInit {
       console.log("On a ajouté 20 nouveaux assignments à la liste actuelle...");
       this.assignments = [...this.assignments , ...newAssignments];
     });
+ }
+
+ LogOut(){
+  this.router.navigate(["/login"]);
  }
 }

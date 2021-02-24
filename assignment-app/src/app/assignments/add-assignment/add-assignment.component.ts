@@ -35,7 +35,7 @@ export class AddAssignmentComponent implements OnInit {
     this.assignmentsService.addAssignment(newAssignment)
     .subscribe(message => {
       console.log(message);
-      this.router.navigate(["home/"]);
+      this.router.navigate(["/home"]);
     })
   }
 }

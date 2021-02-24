@@ -30,7 +30,6 @@ export class LoginPageComponent implements OnInit {
     let i = 0 ;
     while (i<this.users.length) {
       if(this.users[i].email == this.email && this.users[i].password == this.password){
-        this.authService.logIn;
         this.router.navigate(["/home"]);
         return;
       }

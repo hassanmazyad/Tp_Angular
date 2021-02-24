@@ -15,17 +15,41 @@
     flex-direction: column;
 }
 
-.ajouterBtn{
-    align-self: flex-end;
+.Btn{
+    margin-left: 100px;
+    margin-top: 10px;
+    background-color: rgb(36, 36, 255);
 }
 
-.example-viewport {
+.BtnLogout{
+    background-color: rgb(53, 53, 53);
+}
+
+.list1 {
     height: 400px;
-    width: 400px;
+    width: 450px;
     border: 1px solid black;
+    margin-left: 100px;
+}
+
+.list2 {
+    height: 400px;
+    width: 450px;
+    border: 1px solid black;
+    margin-left: 100px;
+}
+
+h1 {
+    margin-left: 100px;
+}
+
+#MyLists{
+    display: flex; 
+    flex-wrap: wrap;
 }
   
 .example-item {
     height: 50px;
 }
+
 
