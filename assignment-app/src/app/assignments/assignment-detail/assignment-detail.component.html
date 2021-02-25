@@ -1,17 +1,21 @@
 <div class="container">
-    <mat-card  *ngIf="assignmentTransmis">
-        <mat-card-title>{{assignmentTransmis.nom}}</mat-card-title>
-        <mat-card-subtitle>{{assignmentTransmis.dateDeRendu | date}}</mat-card-subtitle>
+    <mat-card *ngIf="assignmentTransmis">
+        <mat-card-title>Titre : {{assignmentTransmis.nom}}</mat-card-title>
+        <mat-card-title>Auteur : {{assignmentTransmis.auteur}}</mat-card-title>
+        <mat-card-title>Matière : {{assignmentTransmis.matiere}}</mat-card-title>
+        <mat-card-content>Remarque : {{assignmentTransmis.remarque}}</mat-card-content>
+        <img-mat-card-image></img-mat-card-image>
+        <img-mat-card-image></img-mat-card-image>
+        <mat-card-footer id="footerCard">à rendre pour le {{assignmentTransmis.dateDeRendu | date}}</mat-card-footer>
         <mat-checkbox *ngIf="!assignmentTransmis.rendu" (click)="onAssignmentRendu()">Assignment rendu</mat-checkbox>
 
-
-        <button mat-flat-button color="primary" (click)="onClickEdit()" [disabled]="!loggedIn()">
-            EDIT
-         </button>
-
-        <button mat-flat-button color="warn" (click)="onDelete()">
-            DELETE
-        </button>
-
+        <mat-card-actions>
+            <button class="btn" mat-flat-button color="primary" (click)="onClickEdit()" [disabled]="!loggedIn()">
+                EDIT
+             </button>
+             <button class="btn" mat-flat-button color="warn" (click)="onDelete()">
+                DELETE
+            </button>
+        </mat-card-actions>
     </mat-card>
 </div>

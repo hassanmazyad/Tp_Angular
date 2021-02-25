@@ -1,0 +1,14 @@
+.container{
+    margin-left: 30%;
+    margin-top: 10%;
+    height: 600px;
+    width: 600px;
+}
+
+#footerCard{
+    text-align: right;
+}
+
+.btn{
+    margin-left: 10px;
+}

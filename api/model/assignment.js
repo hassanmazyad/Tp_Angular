@@ -3,8 +3,13 @@ let Schema = mongoose.Schema;
 
 let AssignmentSchema = Schema({
     id: Number,
-    dateDeRendu: Date,
     nom: String,
+    auteur: String,
+    matiere: String,
+    imgProf: String,
+    imgMatiere: String,
+    dateDeRendu: Date,
+    remarque: String,
     rendu: Boolean
 });
 
