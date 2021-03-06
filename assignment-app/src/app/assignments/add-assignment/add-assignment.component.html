@@ -1,7 +1,7 @@
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Fill out your name</ng-template>
+        <ng-template matStepLabel>Nom du devoir</ng-template>
         <mat-form-field>
           <mat-label>Nom du devoir</mat-label>
           <input matInput [(ngModel)] = "nomDevoir" name="name" placeholder="Nom du devoir" formControlName="firstCtrl" required>
@@ -11,11 +11,47 @@
         </div>
       </form>
     </mat-step>
-    <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+    <mat-step [stepControl]="secondFormGroup">
       <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Nom de l'auteur</ng-template>
+        <mat-form-field>
+          <mat-label>Nom de l'auteur</mat-label>
+          <input matInput [(ngModel)] = "auteur" name="name" placeholder="Nom de l'auteur" formControlName="secondCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup">
+      <form [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel>Nom de la matiere</ng-template>
+        <mat-form-field>
+          <mat-label>Nom de la matiere</mat-label>
+          <input matInput [(ngModel)] = "matiere" name="name" placeholder="Nom de la matiere" formControlName="thirdCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="fourthFormGroup">
+      <form [formGroup]="fourthFormGroup">
+        <ng-template matStepLabel>Remarque</ng-template>
+        <mat-form-field>
+          <mat-label>Remarque</mat-label>
+          <input matInput [(ngModel)] = "remarque" name="name" placeholder="Remarque" formControlName="fourthCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="fifthFormGroup" label="La date du rendu">
+      <form [formGroup]="fifthFormGroup">
         <mat-form-field>
           <mat-label>Date du rendu</mat-label>
-          <input matInput [(ngModel)]="dateRendu" name="date" formControlName="secondCtrl" placeholder="Ex 10-02-1999" [matDatepicker]="picker"  required>
+          <input matInput [(ngModel)]="dateRendu" name="date" formControlName="fifthCtrl" placeholder="Ex 10-02-1999" [matDatepicker]="picker"  required>
           <mat-datepicker-toggle metSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>

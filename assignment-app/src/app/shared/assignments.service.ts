@@ -50,6 +50,9 @@ export class AssignmentsService {
           {
             id:id,
             nom:'Nouvel assignement #' + id,
+            auteur: 'Auteur #' + id,
+            matiere: 'Matiere # ' + id,
+            remarque: 'remarque #' + id,
             dateDeRendu: new Date(),
             rendu: false
           }
