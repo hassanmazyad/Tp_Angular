@@ -1,3 +1,4 @@
+const { Double } = require('mongodb');
 let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
@@ -10,7 +11,8 @@ let AssignmentSchema = Schema({
     imgMatiere: String,
     dateDeRendu: Date,
     remarque: String,
-    rendu: Boolean
+    rendu: Boolean,
+    Note: Double
 });
 
 // C'est à travers ce modèle Mongoose qu'on pourra faire le CRUD

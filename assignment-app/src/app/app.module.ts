@@ -10,7 +10,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { RenduDirective } from './shared/rendu.directive';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule, MatPseudoCheckbox } from '@angular/material/core';
 import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component';
@@ -25,6 +25,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {HttpClientModule} from '@angular/common/http';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { LoginPageComponent } from './users/login-page/login-page.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
 const routes:Routes = [
   {
@@ -37,8 +38,7 @@ const routes:Routes = [
   },
   {
     path:"add",
-    component : AddAssignmentComponent,
-    canActivate: [AuthGuard]
+    component : AddAssignmentComponent
   },
   {
     path:"assignment/:id",
@@ -85,6 +85,9 @@ const routes:Routes = [
     HttpClientModule,
     MatSlideToggleModule,
     ScrollingModule,
+    MatStepperModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
     
   ],
