@@ -13,13 +13,19 @@ import { Assignment } from '../assignment.model';
   export class EditAssignmentComponent implements OnInit {
     assignment: Assignment;
     nomAssignment:string;
+    auteur:string;
+    matiere:string;
+    remarque:string;
     dateDeRendu:Date;
 
       //stepper
       isLinear = false
       firstFormGroup: FormGroup
       secondFormGroup: FormGroup
-
+      thirdFormGroup: FormGroup
+      fourthFormGroup: FormGroup
+      fifthFormGroup: FormGroup
+      
     constructor(private assignmentsService: AssignmentsService,
     private route: ActivatedRoute,
     private router:Router , private _formBuilder: FormBuilder ) { }
@@ -39,6 +45,15 @@ import { Assignment } from '../assignment.model';
       this.secondFormGroup = this._formBuilder.group({
         secondCtrl: ['', Validators.required]
       });
+      this.thirdFormGroup = this._formBuilder.group({
+        thirdCtrl: ['', Validators.required]
+      });
+      this.fourthFormGroup = this._formBuilder.group({
+        fourthCtrl: ['', Validators.required]
+      });
+      this.fifthFormGroup = this._formBuilder.group({
+        fifthCtrl: ['', Validators.required]
+      });
     }
 
     getAssignment() {
@@ -50,6 +65,9 @@ import { Assignment } from '../assignment.model';
         .subscribe( (assignment) => {
           this.assignment = assignment;
           this.nomAssignment = assignment.nom;
+          this.auteur = assignment.auteur;
+          this.matiere = assignment.matiere;
+          this.remarque=assignment.remarque;
           this.dateDeRendu = assignment.dateDeRendu;
         });
     }
