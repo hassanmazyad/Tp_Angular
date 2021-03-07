@@ -53,6 +53,8 @@ export class AssignmentsService {
             auteur: 'Auteur #' + id,
             matiere: 'Matiere # ' + id,
             remarque: 'remarque #' + id,
+            imgProf: 'https://www.fratmat.info/media/k2/items/cache/7a763ea01045fd6bbe9be20fa045d43a_XL.jpg',
+            imgMatiere: 'imgMatiere #' + id,
             dateDeRendu: new Date(),
             rendu: false,
             note: null
@@ -122,7 +124,7 @@ export class AssignmentsService {
   }
 
   deleteAssignment(assignment:Assignment):Observable<any>{
-    this.loggingService.log(assignment , "midifié");
+    this.loggingService.log(assignment , "modifié");
     
     /*
     this.assignments.forEach((a, index) => {
@@ -153,6 +155,8 @@ export class AssignmentsService {
       new_assignment.auteur = 'Auteur #' + new_assignment.id;
       new_assignment.matiere = 'Matiere #' + new_assignment.id;
       new_assignment.remarque = 'remarque #' + new_assignment.id;
+      new_assignment.imgProf= 'imgProf #' + new_assignment.id;
+      new_assignment.imgMatiere= 'imgMatiere #' + new_assignment.id;
 
       this.addAssignment(new_assignment)
         .subscribe(message => {

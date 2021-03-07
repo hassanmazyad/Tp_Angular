@@ -29,15 +29,14 @@ export class LoginPageComponent implements OnInit {
     let i = 0 ;
     while (i<this.users.length) {
       if(this.users[i].email == this.email && this.users[i].password == this.password){
-        this.router.navigate(["/home"]);
-        return;
+          this.router.navigate(["/home"]);
+          return;
       }
       else {
         i++;
       }
     }
     console.log("je suis sortie de la boucle")
-    return;
   }
 
 }

@@ -15,21 +15,17 @@
     flex-direction: column;
 }
 
-.Btn{
-    margin-left: 100px;
-    margin-top: 10px;
-    background-color: rgb(36, 36, 255);
-}
 
-.BtnLogout{
-    background-color: rgb(53, 53, 53);
+.Btn{
+    background-color: rgb(110, 110, 110);
+    margin-left: 20%;
 }
 
 .list1 {
     height: 400px;
     width: 450px;
     border: 1px solid black;
-    margin-left: 100px;
+    margin-left: 130px;
 }
 
 .list2 {
@@ -40,7 +36,7 @@
 }
 
 h1 {
-    margin-left: 100px;
+    margin-left: 130px;
 }
 
 #MyLists{
@@ -66,4 +62,13 @@ h1 {
     width: 50%;
     height: 50%;
     margin-left: 25%;
+}
+
+.example-spacer{
+    background-color: rgb(214, 214, 214);
+    margin-top: 5%;
+}
+
+.firstPage{
+    background-color: rgba(255, 255, 255, 0);
 }
