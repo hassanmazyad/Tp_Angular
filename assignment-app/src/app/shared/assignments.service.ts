@@ -54,7 +54,8 @@ export class AssignmentsService {
             matiere: 'Matiere # ' + id,
             remarque: 'remarque #' + id,
             dateDeRendu: new Date(),
-            rendu: false
+            rendu: false,
+            note: null
           }
         );
         }

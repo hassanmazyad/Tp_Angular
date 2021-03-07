@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AssignmentsService } from 'src/app/shared/assignments.service';
+import { AuthService } from 'src/app/shared/auth.service';
 import { Assignment } from '../assignment.model';
 
   @Component({
@@ -17,6 +18,7 @@ import { Assignment } from '../assignment.model';
     matiere:string;
     remarque:string;
     dateDeRendu:Date;
+    note:number;
 
       //stepper
       isLinear = false
@@ -25,10 +27,11 @@ import { Assignment } from '../assignment.model';
       thirdFormGroup: FormGroup
       fourthFormGroup: FormGroup
       fifthFormGroup: FormGroup
+      sixthFormGroup: FormGroup
       
     constructor(private assignmentsService: AssignmentsService,
     private route: ActivatedRoute,
-    private router:Router , private _formBuilder: FormBuilder ) { }
+    private router:Router , private _formBuilder: FormBuilder, private authService:AuthService ) { }
 
 
     ngOnInit(): void {
@@ -54,6 +57,9 @@ import { Assignment } from '../assignment.model';
       this.fifthFormGroup = this._formBuilder.group({
         fifthCtrl: ['', Validators.required]
       });
+      this.sixthFormGroup = this._formBuilder.group({
+        sixthCtrl: ['', Validators.required]
+      });
     }
 
     getAssignment() {
@@ -69,6 +75,7 @@ import { Assignment } from '../assignment.model';
           this.matiere = assignment.matiere;
           this.remarque=assignment.remarque;
           this.dateDeRendu = assignment.dateDeRendu;
+          this.note=assignment.note;
         });
     }
 
@@ -78,7 +85,19 @@ import { Assignment } from '../assignment.model';
       };
       if(this.dateDeRendu) {
         this.assignment.dateDeRendu = this.dateDeRendu;
-      }
+      };
+      if(this.auteur) {
+        this.assignment.auteur = this.auteur;
+      };
+      if(this.matiere) {
+        this.assignment.matiere = this.matiere;
+      };
+      if(this.remarque) {
+        this.assignment.remarque = this.remarque;
+      };
+      if(this.note) {
+        this.assignment.note = this.note;
+      };
 
       this.assignmentsService
       .updateAssignment(this.assignment)

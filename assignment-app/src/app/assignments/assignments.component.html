@@ -7,7 +7,7 @@
         <h1>Les assignments non rendus</h1>
         <cdk-virtual-scroll-viewport itemSize="50" class="list1" #scroller>
             <mat-list *cdkVirtualFor="let assignment of assignments " >
-                <nav *ngIf="!assignment.rendu">
+                <nav *ngIf="assignment.note == null">
                     <a routerLink="/assignment/{{assignment.id}}">
                         <!-- <h3 mat-subheader>date de rendu : {{assignment.dateDeRendu | date}}</h3>
                         <mat-list-item (click)="assignmentClique(assignment)" class="example-item">
@@ -36,10 +36,10 @@
     </div>
 
     <div id="list2">
-        <h1>Les assignments non rendus</h1>
+        <h1>Les assignments rendus</h1>
         <cdk-virtual-scroll-viewport itemSize="50" class="list2" #scroller>
             <mat-list *cdkVirtualFor="let assignment of assignments">
-                <nav *ngIf="assignment.rendu">
+                <nav *ngIf="assignment.note != null">
                     <a routerLink="/assignment/{{assignment.id}}">
                         <!-- <h3 mat-subheader>date de rendu : {{assignment.dateDeRendu | date}}</h3>
                         <mat-list-item (click)="assignmentClique(assignment)" class="example-item">
@@ -59,7 +59,7 @@
                             <mat-card-content>
                               <p>{{assignment.remarque}}</p>
                             </mat-card-content>
-                            <mat-card-footer>à rendre : {{assignment.dateDeRendu | date}}</mat-card-footer>
+                            <mat-card-footer>Note : {{assignment.note}}</mat-card-footer>
                           </mat-card>
                     </a>
                 </nav>

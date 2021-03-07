@@ -7,4 +7,5 @@ export class Assignment {
     remarque:string;
     dateDeRendu:Date;
     rendu:boolean;
+    note:number;
 }

@@ -87,18 +87,11 @@
 
 
 
-
-
-
-
-
-
-
-
-    <mat-step [stepControl]="fifthFormGroup" label="Fill out your address">
+    <mat-step [stepControl]="fifthFormGroup">
       <form [formGroup]="fifthFormGroup">
+        <ng-template matStepLabel>Editer la date du rendu</ng-template>
         <mat-form-field>
-          <mat-label>Address</mat-label>
+          <mat-label>date de rendu</mat-label>
           <input matInput [matDatepicker]="picker" placeholder="Edition de la date" [(ngModel)]="dateDeRendu" name="date" formControlName="fifthCtrl" required>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
@@ -109,6 +102,21 @@
         </div>
       </form>
     </mat-step>
+
+    <mat-step [stepControl]="sixthFormGroup">
+      <form [formGroup]="sixthFormGroup">
+        <ng-template matStepLabel>Editer la note du devoir</ng-template>
+        <mat-form-field>
+          <mat-label>Note</mat-label>
+          <input matInput placeholder="Edition de la note" [(ngModel)]="note" name="remarque" formControlName="sixthCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>
       <p>You are now done.</p>
