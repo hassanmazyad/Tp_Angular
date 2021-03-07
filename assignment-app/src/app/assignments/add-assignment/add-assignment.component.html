@@ -27,10 +27,25 @@
     </mat-step>
     <mat-step [stepControl]="thirdFormGroup">
       <form [formGroup]="thirdFormGroup">
-        <ng-template matStepLabel>Nom de la matiere</ng-template>
-        <mat-form-field>
+        <!-- <ng-template matStepLabel>Nom de la matiere</ng-template> -->
+        <!-- <mat-form-field>
           <mat-label>Nom de la matiere</mat-label>
           <input matInput [(ngModel)] = "matiere" name="name" placeholder="Nom de la matiere" formControlName="thirdCtrl" required>
+        </mat-form-field> -->
+        <mat-form-field>
+          <ng-template matStepLabel>Nom de la matiere</ng-template>
+          <mat-label>Nom de la matiere</mat-label>
+          <mat-select [(ngModel)] = "matiere" name="name" placeholder="Nom de la matiere" formControlName="thirdCtrl" required>
+            <mat-option value="Big data">Big data</mat-option>
+            <mat-option value="Data science">Data science</mat-option>
+            <mat-option value="Web">Web</mat-option>
+            <mat-option value=".NET">.NET</mat-option>
+            <mat-option value="IOS">IOS</mat-option>
+            <mat-option value="Android">Android</mat-option>
+            <mat-option value="Oracle sql">Oracle sql</mat-option>
+            <mat-option value="Grails">Grails</mat-option>
+            <mat-option value="Java">Java</mat-option>
+          </mat-select>
         </mat-form-field>
         <div>
           <button mat-button matStepperNext>Next</button>

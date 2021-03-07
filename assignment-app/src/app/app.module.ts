@@ -27,7 +27,7 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import { LoginPageComponent } from './users/login-page/login-page.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatToolbarModule} from '@angular/material/toolbar';
-
+import {MatSelectModule} from '@angular/material/select';
 const routes:Routes = [
   {
     path:"", 
@@ -90,6 +90,7 @@ const routes:Routes = [
     FormsModule,
     ReactiveFormsModule,
     MatToolbarModule,
+    MatSelectModule,
     RouterModule.forRoot(routes)
     
   ],

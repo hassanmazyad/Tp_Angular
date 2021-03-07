@@ -38,7 +38,7 @@
                                 <mat-card-title>{{assignment.nom}}</mat-card-title>
                                 <mat-card-subtitle>{{assignment.auteur}}</mat-card-subtitle>
                                 </mat-card-header>
-                                <img class="img-item" mat-card-image src="https://www.fratmat.info/media/k2/items/cache/7a763ea01045fd6bbe9be20fa045d43a_XL.jpg" alt="Photo of a Shiba Inu">
+                                <img class="img-item" mat-card-image [src]="assignment.imgProf">
                                 <mat-card-content>
                                 <p>{{assignment.remarque}}</p>
                                 </mat-card-content>
@@ -70,7 +70,7 @@
                                 <mat-card-title>{{assignment.nom}}</mat-card-title>
                                 <mat-card-subtitle>{{assignment.auteur}}</mat-card-subtitle>
                                 </mat-card-header>
-                                <img class="img-item" mat-card-image src="https://www.fratmat.info/media/k2/items/cache/7a763ea01045fd6bbe9be20fa045d43a_XL.jpg" alt="Photo of a Shiba Inu">
+                                <img class="img-item" mat-card-image [src]="assignment.imgProf" >
                                 <mat-card-content>
                                 <p>{{assignment.remarque}}</p>
                                 </mat-card-content>

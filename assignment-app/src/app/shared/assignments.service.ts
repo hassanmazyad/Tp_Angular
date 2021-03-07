@@ -12,6 +12,8 @@ import * as data from './assignments.json';
 export class AssignmentsService {
   assignments:Assignment[];
 
+  matieres:string[] = ['Big data','Data science','Web','.NET','IOS','Android','Oracle sql','Grails','Java'];
+
   constructor(private loggingService:LoggingService , private http:HttpClient) { }
 
   uri = "http://localhost:8010/api/assignments";
@@ -45,15 +47,32 @@ export class AssignmentsService {
 
       for (let i =0 ; i<size ; i++ ){
         const id = this.getNewId().toString();
-
+        const module = this.matieres[Math.floor(Math.random() * this.matieres.length)];
+        let prof:string;
+        //'Big data','Data science','Web','.NET','IOS','Android','Oracle sql','Grails','Java'
+        if(module == 'Big data' || module == 'Oracle sql' ) {
+            prof = 'https://www.fratmat.info/media/k2/items/cache/7a763ea01045fd6bbe9be20fa045d43a_XL.jpg'
+        }
+        else if (module == 'Data science') {
+            prof = 'https://www.universiteitleiden.nl/binaries/content/gallery/ul2/portraits/medicine-lumc/jelle-goeman-200x250.jpg/jelle-goeman-200x250.jpg/d330x390'
+        }
+        else if (module == 'IOS' || module == 'Android'){
+          prof = 'https://www.superprof.fr/images/annonces/professeur-home-programmation-java-creation-site-web-adaptatif-application-android.jpg';
+        }
+        else if (module == '.NET' || module == 'Java'){
+          prof='https://www.superprof.fr/images/annonces/professeur-home-enseignant-informatique-propose-cours-php-java-intelligence-artificielle-net.jpg';
+        }
+        else {
+          prof = 'https://i1.rgstatic.net/ii/profile.image/712495153029121-1546883490651_Q512/Michel-Buffa.jpg';
+        }
         newAssignments.push(
           {
             id:id,
             nom:'Nouvel assignement #' + id,
             auteur: 'Auteur #' + id,
-            matiere: 'Matiere # ' + id,
+            matiere: module,
             remarque: 'remarque #' + id,
-            imgProf: 'https://www.fratmat.info/media/k2/items/cache/7a763ea01045fd6bbe9be20fa045d43a_XL.jpg',
+            imgProf: prof, 
             imgMatiere: 'imgMatiere #' + id,
             dateDeRendu: new Date(),
             rendu: false,

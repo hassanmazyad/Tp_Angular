@@ -57,10 +57,25 @@
 
     <mat-step [stepControl]="thirdFormGroup">
       <form [formGroup]="thirdFormGroup">
-        <ng-template matStepLabel>Editer la matiere du devoir</ng-template>
+        <!-- <ng-template matStepLabel>Editer la matiere du devoir</ng-template>
         <mat-form-field>
           <mat-label>Matiere</mat-label>
           <input matInput placeholder="Edition de la matiere" [(ngModel)]="matiere" name="matiere" formControlName="thirdCtrl" required>
+        </mat-form-field> -->
+        <mat-form-field>
+          <ng-template matStepLabel>Nom de la matiere</ng-template>
+          <mat-label>Nom de la matiere</mat-label>
+          <mat-select placeholder="Nom de la matiere" [(ngModel)]="matiere" name="matiere" formControlName="thirdCtrl" required>
+            <mat-option value="option1">Big data</mat-option>
+            <mat-option value="option2">Data science</mat-option>
+            <mat-option value="option3">Web</mat-option>
+            <mat-option value="option4">.NET</mat-option>
+            <mat-option value="option5">IOS</mat-option>
+            <mat-option value="option6">Android</mat-option>
+            <mat-option value="option7">Oracle sql</mat-option>
+            <mat-option value="option8">Grails</mat-option>
+            <mat-option value="option9">Java</mat-option>
+          </mat-select>
         </mat-form-field>
         <div>
           <button mat-button matStepperNext>Next</button>
