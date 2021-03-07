@@ -56,7 +56,7 @@ export class AddAssignmentComponent implements OnInit {
     newAssignment.remarque = this.remarque;
     newAssignment.dateDeRendu = this.dateRendu;
     newAssignment.rendu = false;
-    newAssignment.id = Math.ceil(Math.random()*10000);
+    newAssignment.id = Math.ceil(Math.random()*10000).toString();
     //this.nouvelAssignment.emit(newAssignment);
 
     //this.assignments.push(newAssignment);

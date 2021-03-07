@@ -1,6 +1,6 @@
 export class Assignment {
     _id?:string;
-    id:number;
+    id:string;
     nom:string;
     auteur:string;
     matiere:string;

@@ -9,14 +9,26 @@
             <mat-list *cdkVirtualFor="let assignment of assignments " >
                 <nav *ngIf="!assignment.rendu">
                     <a routerLink="/assignment/{{assignment.id}}">
-                        <h3 mat-subheader>date de rendu : {{assignment.dateDeRendu | date}}</h3>
+                        <!-- <h3 mat-subheader>date de rendu : {{assignment.dateDeRendu | date}}</h3>
                         <mat-list-item (click)="assignmentClique(assignment)" class="example-item">
                             <p appRendu *ngIf="assignment.rendu; else nonSoumis">Devoir intitulé {{assignment.nom}} à rendre, a été rendu</p>
                             <ng-template #nonSoumis>
                                 <p>le devoir {{assignment.nom}} n'a pas été rendu</p>
                             </ng-template>
                             <mat-divider></mat-divider>
-                        </mat-list-item>
+                        </mat-list-item> -->
+                        <mat-card (click)="assignmentClique(assignment)" class="example-card">
+                            <mat-card-header>
+                              <div mat-card-avatar class="example-header-image"></div>
+                              <mat-card-title>{{assignment.nom}}</mat-card-title>
+                              <mat-card-subtitle>{{assignment.auteur}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <img class="img-item" mat-card-image src="https://www.fratmat.info/media/k2/items/cache/7a763ea01045fd6bbe9be20fa045d43a_XL.jpg" alt="Photo of a Shiba Inu">
+                            <mat-card-content>
+                              <p>{{assignment.remarque}}</p>
+                            </mat-card-content>
+                            <mat-card-footer>à rendre : {{assignment.dateDeRendu | date}}</mat-card-footer>
+                          </mat-card>
                     </a>
                 </nav>
             </mat-list>
@@ -24,19 +36,31 @@
     </div>
 
     <div id="list2">
-        <h1>Les assignments rendus</h1>
+        <h1>Les assignments non rendus</h1>
         <cdk-virtual-scroll-viewport itemSize="50" class="list2" #scroller>
             <mat-list *cdkVirtualFor="let assignment of assignments">
                 <nav *ngIf="assignment.rendu">
                     <a routerLink="/assignment/{{assignment.id}}">
-                        <h3 mat-subheader>date de rendu : {{assignment.dateDeRendu | date}}</h3>
+                        <!-- <h3 mat-subheader>date de rendu : {{assignment.dateDeRendu | date}}</h3>
                         <mat-list-item (click)="assignmentClique(assignment)" class="example-item">
                             <p appRendu *ngIf="assignment.rendu; else nonSoumis">Devoir intitulé {{assignment.nom}} à rendre, a été rendu</p>
                             <ng-template #nonSoumis>
                                 <p>le devoir {{assignment.nom}} n'a pas été rendu</p>
                             </ng-template>
                             <mat-divider></mat-divider>
-                        </mat-list-item>
+                        </mat-list-item> -->
+                        <mat-card (click)="assignmentClique(assignment)" class="example-card">
+                            <mat-card-header>
+                              <div mat-card-avatar class="example-header-image"></div>
+                              <mat-card-title>{{assignment.nom}}</mat-card-title>
+                              <mat-card-subtitle>{{assignment.auteur}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <img class="img-item" mat-card-image src="https://www.fratmat.info/media/k2/items/cache/7a763ea01045fd6bbe9be20fa045d43a_XL.jpg" alt="Photo of a Shiba Inu">
+                            <mat-card-content>
+                              <p>{{assignment.remarque}}</p>
+                            </mat-card-content>
+                            <mat-card-footer>à rendre : {{assignment.dateDeRendu | date}}</mat-card-footer>
+                          </mat-card>
                     </a>
                 </nav>
             </mat-list>

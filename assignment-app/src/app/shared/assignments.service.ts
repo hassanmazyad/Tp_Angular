@@ -44,7 +44,7 @@ export class AssignmentsService {
       let newAssignments:Assignment[] = [];
 
       for (let i =0 ; i<size ; i++ ){
-        const id = this.getNewId();
+        const id = this.getNewId().toString();
 
         newAssignments.push(
           {
@@ -144,11 +144,14 @@ export class AssignmentsService {
 
       const new_assignment = new Assignment();
 
-      new_assignment.id = this.getNewId();
+      new_assignment.id = this.getNewId().toString();
 
       new_assignment.nom = a.nom;
       new_assignment.dateDeRendu = new Date(a.dateDeRendu);
       new_assignment.rendu = false;
+      new_assignment.auteur = 'Auteur #' + new_assignment.id;
+      new_assignment.matiere = 'Matiere #' + new_assignment.id;
+      new_assignment.remarque = 'remarque #' + new_assignment.id;
 
       this.addAssignment(new_assignment)
         .subscribe(message => {

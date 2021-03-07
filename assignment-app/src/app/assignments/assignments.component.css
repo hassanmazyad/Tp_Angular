@@ -53,3 +53,17 @@ h1 {
 }
 
 
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://i1.rgstatic.net/ii/profile.image/712495153029121-1546883490651_Q512/Michel-Buffa.jpg');
+  background-size: cover;
+}
+
+.img-item{
+    width: 50%;
+    height: 50%;
+    margin-left: 25%;
+}

@@ -3,7 +3,7 @@ let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
 let AssignmentSchema = Schema({
-    id: Number,
+    id: String,
     nom: String,
     auteur: String,
     matiere: String,
