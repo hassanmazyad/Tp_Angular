@@ -34,8 +34,9 @@
                             </mat-list-item> -->
                             <mat-card (click)="assignmentClique(assignment)" class="example-card">
                                 <mat-card-header>
-                                <div mat-card-avatar class="example-header-image"></div>
+                                <img class="img-mat" mat-card-avatar [src]="assignment.imgMatiere" >
                                 <mat-card-title>{{assignment.nom}}</mat-card-title>
+                                <mat-card-title>{{assignment.matiere}}</mat-card-title>
                                 <mat-card-subtitle>{{assignment.auteur}}</mat-card-subtitle>
                                 </mat-card-header>
                                 <img class="img-item" mat-card-image [src]="assignment.imgProf">
@@ -66,7 +67,7 @@
                             </mat-list-item> -->
                             <mat-card (click)="assignmentClique(assignment)" class="example-card">
                                 <mat-card-header>
-                                <div mat-card-avatar class="example-header-image"></div>
+                                <img class="img-mat" mat-card-avatar [src]="assignment.imgMatiere" >
                                 <mat-card-title>{{assignment.nom}}</mat-card-title>
                                 <mat-card-subtitle>{{assignment.auteur}}</mat-card-subtitle>
                                 </mat-card-header>
