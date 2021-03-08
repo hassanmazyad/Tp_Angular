@@ -16,3 +16,5 @@ les fonctionnalités faites sont les suivantes:
 6. Les formulaires d'ajout et de détails proposeront un choix fixe de matières (et associeront automatiquement le prof et l'image illustrant la matière).
 7. La vue détails montrera en plus les remarques, la note s'il a été rendu, etc.
 8. l'affichage dans la liste des Assignments chaque Assignment sous forme d'une Material Card, avec le titre, la date, l'élève, une petite image illustrant la matière, la photo du prof en petit en haut.
+
+Demo disponible ici : https://youtu.be/KNixvUvzkVc
